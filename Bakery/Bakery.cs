@@ -20,34 +20,15 @@ namespace Bakery
       if (wantsToOrder == "Y")
       {
         // Get Bread Order
-        Console.WriteLine("How many loaves of bread? (press Enter for none)");
+        Console.WriteLine("How many loaves of bread?");
         string breadOrder = Console.ReadLine();
-        if (!IsNumber(breadOrder))
-        {
-          Console.WriteLine("Please enter a valid number.");
-        } 
+        // Validate input & convert to int
+        int breadQty = HandleOrder(breadOrder);
         // Get Pastry Order
-        Console.WriteLine("How many pastries? (press Enter for none)");
+        Console.WriteLine("How many pastries?");
         string pastryOrder = Console.ReadLine();
-        // Handle user entering nothing
-        if  (breadOrder == "" && pastryOrder == "")
-        {
-          Console.WriteLine("Changed your mind! No order, gotcha.");
-          return;
-        } 
-        else if (pastryOrder == "")
-        {
-          Console.WriteLine("No pastry order, gotcha.");
-          return;
-        } 
-        else if (breadOrder == "")
-        {
-          Console.WriteLine("No bread order, gotcha.");
-          return;
-        }
-        // Validate input
-        int breadQty = int.Parse(breadOrder);
-        int pastryQty = int.Parse(pastryOrder);
+        // Validate input & convert to int
+        int pastryQty = HandleOrder(pastryOrder);
         // Get Total
         Bread bread = new Bread(breadQty);
         Pastry pastry = new Pastry(pastryQty);
@@ -56,18 +37,34 @@ namespace Bakery
       }
     }
 
+    private static int HandleOrder(string order)
+    {
+      // While input is invalid
+      while (!IsNumber(order))
+      {
+        Console.WriteLine("Please enter a valid number.");
+        order = Console.ReadLine();
+      }
+    
+      // Convert order input to int
+      int orderQty = int.Parse(order);
+
+      // Return order quantity
+      return orderQty;
+    }
+
     private static bool IsNumber(string userInput)
     {
       try
       {
         int.Parse(userInput);
+        return true;
       }
       catch
       {
-        Console.WriteLine("Changed your mind! No order, gotcha.");
-        throw;
+        return false;
       }
-      return true;
+      
     }
   }
 }
