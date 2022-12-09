@@ -16,7 +16,8 @@ namespace Bakery.Models
     {
       int sub = 0;
       int basePrice = GetBasePrice();
-      return sub = basePrice;
+      int discount = GetDiscount();
+      return sub = basePrice - discount;
     }
 
     private int GetBasePrice()
@@ -24,5 +25,11 @@ namespace Bakery.Models
       return Quantity * _price;
     }
 
+    private int GetDiscount()
+    {
+      int thirdLoaves = Quantity / 3;
+      int discount = thirdLoaves * _price;
+      return discount;
+    }
   }
 }
