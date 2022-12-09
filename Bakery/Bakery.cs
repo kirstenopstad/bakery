@@ -14,7 +14,9 @@ namespace Bakery
       Console.WriteLine("=== Today's Deals ===");
       Console.WriteLine("Bread: Buy three, get one free!");
       Console.WriteLine("Pastries: Buy more, save more! 3 for $5 and 6 for $10");
-      Console.WriteLine("Would you like to place an order? (y/n)");
+
+      // Prompt for type of order
+      Console.WriteLine("Would you like to order bread? (y/n)");
       string wantsToOrder = Console.ReadLine();
       wantsToOrder = wantsToOrder.ToUpper();
       if (wantsToOrder == "Y")
@@ -25,6 +27,7 @@ namespace Bakery
         {
           Console.WriteLine(type);
         }
+      }
         // Validate type input
         string breadType = Console.ReadLine();
         // string[] breadOptions = 
@@ -33,13 +36,21 @@ namespace Bakery
         string breadOrder = Console.ReadLine();
         // Validate qty input & convert to int
         int breadQty = HandleOrderQty(breadOrder);
+      
 
+      // Prompt for type of order
+      Console.WriteLine("Would you like to order from our pastry section? (y/n)");
+      wantsToOrder = Console.ReadLine();
+      wantsToOrder = wantsToOrder.ToUpper();
+      if (wantsToOrder == "Y")
+      {
         // Get Pastry Order
         Console.WriteLine("What kind of pastry would you like to order?");
         foreach (string type in Pastry.PastryTypes)
         {
           Console.WriteLine(type);
         }
+      }
         // Validate type input
         string pastryType = Console.ReadLine();
         pastryType = ValidateType(pastryType, Pastry.PastryTypes);
@@ -47,27 +58,14 @@ namespace Bakery
         string pastryOrder = Console.ReadLine();
         // Validate qty input & convert to int
         int pastryQty = HandleOrderQty(pastryOrder);
-        
-        // Get Total
-        Bread bread = new Bread(breadQty);
-        Pastry pastry = new Pastry(pastryQty);
-        int total = Pastry.GrandTotal(bread.SubTotal(), pastry.SubTotal());
-        Console.WriteLine($"Thanks for your order of {breadQty} loaves of {breadType} bread and {pastryQty} pastries! Your total is ${total}.");
-      }
-    }
+      
 
-    // private static string ValidatePastryType(string typeInput)
-    // {
-    //   string checkType = typeInput.ToLower();
-    //   // While input type not in pastry list
-    //   while (!Array.Exists(Pastry.PastryTypes, element => element == checkType))
-    //   {
-    //     Console.WriteLine("Please enter a valid bread type.");
-    //     typeInput = Console.ReadLine();
-    //     checkType = typeInput.ToLower();
-    //   }
-    //   return checkType;
-    // }
+      // Get Total
+      Bread bread = new Bread(breadQty);
+      Pastry pastry = new Pastry(pastryQty);
+      int total = Pastry.GrandTotal(bread.SubTotal(), pastry.SubTotal());
+      Console.WriteLine($"Thanks for your order of {breadQty} loaves of bread and {pastryQty} pastry items! Your total is ${total}.");
+    }
 
     private static string ValidateType(string typeInput, string[] typeArray)
     {
