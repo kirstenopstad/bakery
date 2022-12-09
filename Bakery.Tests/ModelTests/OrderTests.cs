@@ -23,6 +23,17 @@ namespace Bakery.Tests
       int pastrySubTotal = 10;
       Assert.AreEqual(15, Order.GetTotal(breadSubTotal,pastrySubTotal));
     }
+
+    [TestMethod]
+    public void ApplyDiscount_FiveOffOrdersOverTwentyFive_Total()
+    {
+      //Arrange
+      int breadSubTotal = 15;
+      int pastrySubTotal = 15;
+      //Act
+      //Assert
+      Assert.AreEqual(25, Order.GetTotal(breadSubTotal,pastrySubTotal));
+    }
   }
 
 }
