@@ -52,10 +52,11 @@ namespace Bakery.Tests
     {
       // Every third loaf is free
       int[] quantities = {4,5,6,7,8,9,10};
-      foreach (int qty in quantities)
+      int[] totals = {15, 20, 20, 25, 30, 30, 35}; 
+      for (int i = 0; i <  quantities.Length; i++)
       {
-        Bread breadInstance = new Bread(qty);
-        Assert.AreEqual(10, breadInstance.SubTotal());
+        Bread breadInstance = new Bread(quantities[i]);
+        Assert.AreEqual(totals[i], breadInstance.SubTotal());
       }
     }
   }
