@@ -11,6 +11,13 @@ namespace Bakery.Models
       Quantity = qty;
     }
 
+    // GrandTotal Method
+    public static int GrandTotal(int subTotal1, int subTotal2)
+    {
+      int total = 0;
+      return total = subTotal1 + subTotal2;
+    }
+
     // SubTotal Method
     public int SubTotal()
     {
