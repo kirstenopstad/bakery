@@ -27,16 +27,27 @@ namespace Bakery
         }
         // Validate type input
         string breadType = Console.ReadLine();
-        breadType = ValidateBreadType(breadType);
+        // string[] breadOptions = 
+        breadType = ValidateType(breadType, Bread.BreadTypes);
         Console.WriteLine($"How many loaves of {breadType} bread?");
         string breadOrder = Console.ReadLine();
-        // Validate input & convert to int
+        // Validate qty input & convert to int
         int breadQty = HandleOrderQty(breadOrder);
+
         // Get Pastry Order
-        Console.WriteLine("How many pastries?");
+        Console.WriteLine("What kind of pastry would you like to order?");
+        foreach (string type in Pastry.PastryTypes)
+        {
+          Console.WriteLine(type);
+        }
+        // Validate type input
+        string pastryType = Console.ReadLine();
+        pastryType = ValidateType(pastryType, Pastry.PastryTypes);
+        Console.WriteLine($"How many {pastryType}s?");
         string pastryOrder = Console.ReadLine();
-        // Validate input & convert to int
+        // Validate qty input & convert to int
         int pastryQty = HandleOrderQty(pastryOrder);
+        
         // Get Total
         Bread bread = new Bread(breadQty);
         Pastry pastry = new Pastry(pastryQty);
@@ -45,13 +56,26 @@ namespace Bakery
       }
     }
 
-    private static string ValidateBreadType(string typeInput)
+    // private static string ValidatePastryType(string typeInput)
+    // {
+    //   string checkType = typeInput.ToLower();
+    //   // While input type not in pastry list
+    //   while (!Array.Exists(Pastry.PastryTypes, element => element == checkType))
+    //   {
+    //     Console.WriteLine("Please enter a valid bread type.");
+    //     typeInput = Console.ReadLine();
+    //     checkType = typeInput.ToLower();
+    //   }
+    //   return checkType;
+    // }
+
+    private static string ValidateType(string typeInput, string[] typeArray)
     {
       string checkType = typeInput.ToLower();
-      // While input type not in bread list
-      while (!Array.Exists(Bread.BreadTypes, element => element == checkType))
+      // While input type not in type array
+      while (!Array.Exists(typeArray, element => element == checkType))
       {
-        Console.WriteLine("Please enter a valid bread type.");
+        Console.WriteLine($"Please enter a valid type.");
         typeInput = Console.ReadLine();
         checkType = typeInput.ToLower();
       }
