@@ -28,7 +28,7 @@ namespace Bakery.Tests
     {
       // Based on unit price ($5 per loaf) stored in object, calc base price 
       Bread breadInstance = new Bread(1);
-      Assert.AreEqual(10, breadInstance.SubTotal());
+      Assert.AreEqual(5, breadInstance.SubTotal());
     }
 
     [TestMethod]
