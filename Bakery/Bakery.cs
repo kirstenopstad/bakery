@@ -20,15 +20,23 @@ namespace Bakery
       if (wantsToOrder == "Y")
       {
         // Get Bread Order
-        Console.WriteLine("How many loaves of bread?");
+        Console.WriteLine($"What kind of bread would you like to order?");
+        foreach (string type in Bread.BreadTypes)
+        {
+          Console.WriteLine(type);
+        }
+        // Validate type input
+        string breadType = Console.ReadLine();
+        breadType = HandleBreadType(breadType);
+        Console.WriteLine($"How many loaves of {breadType} bread?");
         string breadOrder = Console.ReadLine();
         // Validate input & convert to int
-        int breadQty = HandleOrder(breadOrder);
+        int breadQty = HandleOrderQty(breadOrder);
         // Get Pastry Order
         Console.WriteLine("How many pastries?");
         string pastryOrder = Console.ReadLine();
         // Validate input & convert to int
-        int pastryQty = HandleOrder(pastryOrder);
+        int pastryQty = HandleOrderQty(pastryOrder);
         // Get Total
         Bread bread = new Bread(breadQty);
         Pastry pastry = new Pastry(pastryQty);
@@ -37,7 +45,20 @@ namespace Bakery
       }
     }
 
-    private static int HandleOrder(string order)
+    private static string HandleBreadType(string typeInput)
+    {
+      string checkType = typeInput.ToLower();
+      // While input type not in bread list
+      while (!Array.Exists(Bread.BreadTypes, element => element == checkType))
+      {
+        Console.WriteLine("Please enter a valid bread type.");
+        typeInput = Console.ReadLine();
+        checkType = typeInput.ToLower();
+      }
+      return typeInput;
+    }
+
+    private static int HandleOrderQty (string order)
     {
       // While input is invalid
       while (!IsNumber(order))
