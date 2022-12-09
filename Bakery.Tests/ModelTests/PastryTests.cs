@@ -4,14 +4,13 @@ using Bakery.Models;
 namespace Bakery.Tests
 {
   [TestClass]
-  public class Pastry
+  public class PastryTests
   {
     [TestMethod]
-    // Test methods will go here
-    public void NameOfMethodWeAreTesting_DescriptionOfBehavior_ExpectedReturnValue()
+    public void CreateInstance_CreateInstanceOfPastry_Pastry()
     {
-      // any necessary logic to prep for test; instantiating new classes, etc.
-      // Template: ``` Assert.AreEqual(EXPECTED_RESULT, CODE_TO_TEST); ```
+      Pastry pastryInstance = new Pastry();
+      Assert.AreEqual(typeof(Pastry), pastryInstance.GetType());
     }
   }
 }
