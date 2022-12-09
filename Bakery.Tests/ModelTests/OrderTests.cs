@@ -21,7 +21,8 @@ namespace Bakery.Tests
       // Add two subtotal values
       int breadSubTotal = 5;
       int pastrySubTotal = 10;
-      Assert.AreEqual(15, Order.Total(breadSubTotal,pastrySubTotal));
+      Assert.AreEqual(15, Order.GetTotal(breadSubTotal,pastrySubTotal));
+    }
   }
-  
+
 }
