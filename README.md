@@ -37,7 +37,7 @@ All functionality for the models should be tested using red, green, refactor wor
 <!-- [Link to operational site](http://www.kirstenopstad.github.com/<REPOSITORY NAME>) -->
 
 ### Goals
-1. Meet MVP
+1. Meet MVP ✅
 2. Allow users to buy different kinds of Bread and Pastry.
 3. Add additional deals beyond the ones mentioned above.
 4. Stretch Goal: Use class inheritance to DRY up code for the Bread and Pastry class.
