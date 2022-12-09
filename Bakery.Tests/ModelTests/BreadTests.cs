@@ -7,11 +7,19 @@ namespace Bakery.Tests
   public class Bread
   {
     [TestMethod]
-    // Test methods will go here
-    public void NameOfMethodWeAreTesting_DescriptionOfBehavior_ExpectedReturnValue()
+    public void CreateInstance_CreateInstanceOfBread_Bread()
     {
-      // any necessary logic to prep for test; instantiating new classes, etc.
-      // Template: ``` Assert.AreEqual(EXPECTED_RESULT, CODE_TO_TEST); ```
+      Bread breadInstance = new Bread();
+      Assert.AreEqual(typeof(Bread), breadInstance.GetType());
     }
+
+    [TestMethod]
+    public void GetQuantity_SetBreadQuantity_Quantity()
+    {
+      // Take qty as input and stores in property
+      Bread breadInstance = new Bread(2);
+      AssertAre.AreEqual(2, breadInstance.Quantity);
+    }
+
   }
 }
