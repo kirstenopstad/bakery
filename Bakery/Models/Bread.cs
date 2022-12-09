@@ -1,3 +1,6 @@
+using System;
+// using System.Collections.Generic;
+
 namespace Bakery.Models
 {
 
@@ -5,6 +8,7 @@ namespace Bakery.Models
   {
     public int Quantity { get; set; }
     private int _price = 5;
+    public string[] BreadTypes = {"Mulitgrain", "Sourdough", "Rye", "Pumpernickel"};
 
     // Constructor
     public Bread(int qty)
