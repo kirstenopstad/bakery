@@ -8,7 +8,7 @@ namespace Bakery.Models
   {
     public int Quantity { get; set; }
     private int _price = 5;
-    public string[] BreadTypes = {"Mulitgrain", "Sourdough", "Rye", "Pumpernickel"};
+    public static string[] BreadTypes = {"multigrain", "sourdough", "rye", "pumpernickel"};
 
     // Constructor
     public Bread(int qty)
