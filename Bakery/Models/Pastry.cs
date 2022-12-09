@@ -4,6 +4,7 @@ namespace Bakery.Models
   {
     public int Quantity { get; set; }
     private int _price = 2;
+    public string[] pastryTypes = {"muffin","scone","croissant","cookie"};
 
     // Constructor
     public Pastry(int qty)

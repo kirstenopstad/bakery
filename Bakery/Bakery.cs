@@ -27,7 +27,7 @@ namespace Bakery
         }
         // Validate type input
         string breadType = Console.ReadLine();
-        breadType = HandleBreadType(breadType);
+        breadType = ValidateBreadType(breadType);
         Console.WriteLine($"How many loaves of {breadType} bread?");
         string breadOrder = Console.ReadLine();
         // Validate input & convert to int
@@ -41,11 +41,11 @@ namespace Bakery
         Bread bread = new Bread(breadQty);
         Pastry pastry = new Pastry(pastryQty);
         int total = Pastry.GrandTotal(bread.SubTotal(), pastry.SubTotal());
-        Console.WriteLine($"Thanks for your order of {breadQty} loaves of bread and {pastryQty} pastries! Your total is ${total}.");
+        Console.WriteLine($"Thanks for your order of {breadQty} loaves of {breadType} bread and {pastryQty} pastries! Your total is ${total}.");
       }
     }
 
-    private static string HandleBreadType(string typeInput)
+    private static string ValidateBreadType(string typeInput)
     {
       string checkType = typeInput.ToLower();
       // While input type not in bread list
@@ -55,7 +55,7 @@ namespace Bakery
         typeInput = Console.ReadLine();
         checkType = typeInput.ToLower();
       }
-      return typeInput;
+      return checkType;
     }
 
     private static int HandleOrderQty (string order)
