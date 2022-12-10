@@ -16,6 +16,13 @@ namespace Bakery
       Console.WriteLine("Pastries: Buy more, save more! 3 for $5 and 6 for $10");
 
       // Prompt for type of order
+
+      // Initialize variables
+      string breadType = "";
+      string pastryType = "";
+      int breadQty = 0;
+      int pastryQty = 0;
+
       Console.WriteLine("Would you like to order bread? (y/n)");
       string wantsToOrder = Console.ReadLine();
       wantsToOrder = wantsToOrder.ToUpper();
@@ -27,16 +34,16 @@ namespace Bakery
         {
           Console.WriteLine(type);
         }
-      }
+      
         // Validate type input
-        string breadType = Console.ReadLine();
+        breadType = Console.ReadLine();
         // string[] breadOptions = 
         breadType = ValidateType(breadType, Bread.BreadTypes);
         Console.WriteLine($"How many loaves of {breadType} bread?");
         string breadOrder = Console.ReadLine();
         // Validate qty input & convert to int
-        int breadQty = HandleOrderQty(breadOrder);
-      
+        breadQty = HandleOrderQty(breadOrder);
+      }
 
       // Prompt for type of order
       Console.WriteLine("Would you like to order from our pastry section? (y/n)");
@@ -50,15 +57,14 @@ namespace Bakery
         {
           Console.WriteLine(type);
         }
-      }
         // Validate type input
-        string pastryType = Console.ReadLine();
+        pastryType = Console.ReadLine();
         pastryType = ValidateType(pastryType, Pastry.PastryTypes);
         Console.WriteLine($"How many {pastryType}s?");
         string pastryOrder = Console.ReadLine();
         // Validate qty input & convert to int
-        int pastryQty = HandleOrderQty(pastryOrder);
-      
+        pastryQty = HandleOrderQty(pastryOrder);
+      }
 
       // Get Total
       Bread bread = new Bread(breadQty);
