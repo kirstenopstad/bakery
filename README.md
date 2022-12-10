@@ -47,7 +47,7 @@ All functionality for the models should be tested using red, green, refactor wor
 
 * Clone this repo to your workspace.
 * Navigate to the top level of the directory.
-* Navigate to program directory ``` $ cd ProjectName ```
+* Navigate to program directory ``` $ cd bakery ```
 * Build the project with ``` $ dotnet build ```
 * Run the project with ``` $ dotnet run ```
 
