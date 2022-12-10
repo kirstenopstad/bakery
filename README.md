@@ -39,7 +39,7 @@ All functionality for the models should be tested using red, green, refactor wor
 ### Goals
 1. Meet MVP ✅
 2. Allow users to buy different kinds of Bread and Pastry. ✅
-3. Add additional deals beyond the ones mentioned above.
+3. Add additional deals beyond the ones mentioned above. ✅
 4. Stretch Goal: Use class inheritance to DRY up code for the Bread and Pastry class.
 5. Stretch Goal: Allow users to keep adding to an order. In order to do this, you will need to use static variables. See the lesson on static variables to complete this objective.
 
