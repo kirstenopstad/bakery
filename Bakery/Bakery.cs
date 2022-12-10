@@ -63,7 +63,7 @@ namespace Bakery
       // Get Total
       Bread bread = new Bread(breadQty);
       Pastry pastry = new Pastry(pastryQty);
-      int total = Pastry.GrandTotal(bread.SubTotal(), pastry.SubTotal());
+      int total = Order.GetTotal(bread.SubTotal(), pastry.SubTotal());
       Console.WriteLine($"Thanks for your order of {breadQty} loaves of bread and {pastryQty} pastry items! Your total is ${total}.");
     }
 
