@@ -4,16 +4,16 @@ using System;
 namespace Bakery.Models
 {
 
-  public class Bread
+  public class Bread : Item
   {
-    public int Quantity { get; set; }
-    private int _price = 5;
+    // Properties
     public static string[] BreadTypes = {"multigrain", "sourdough", "rye", "pumpernickel"};
 
     // Constructor
     public Bread(int qty)
     {
       Quantity = qty;
+      Price = 5;
     }
 
     // SubTotal Method
@@ -25,15 +25,10 @@ namespace Bakery.Models
       return sub = basePrice - discount;
     }
 
-    private int GetBasePrice()
-    {
-      return Quantity * _price;
-    }
-
     private int GetDiscount()
     {
       int thirdLoaves = Quantity / 3;
-      int discount = thirdLoaves * _price;
+      int discount = thirdLoaves * Price;
       return discount;
     }
   }
