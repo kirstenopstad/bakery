@@ -1,15 +1,15 @@
 namespace Bakery.Models
 {
-  public class Pastry
+  public class Pastry : Item
   {
-    public int Quantity { get; set; }
-    private int _price = 2;
+    // Properties
     public static string[] PastryTypes = {"muffin","scone","croissant","cookie"};
 
     // Constructor
     public Pastry(int qty)
     {
       Quantity = qty;
+      Price = 2;
     }
 
     // SubTotal Method
@@ -19,11 +19,6 @@ namespace Bakery.Models
       int basePrice = GetBasePrice();
       int discount = GetDiscount();
       return sub = basePrice - discount;
-    }
-
-    private int GetBasePrice()
-    {
-      return Quantity * _price;
     }
 
     private int GetDiscount()
