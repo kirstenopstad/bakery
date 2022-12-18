@@ -50,6 +50,7 @@ All functionality for the models should be tested using red, green, refactor wor
 * Navigate to program directory ``` $ cd bakery ```
 * Build the project with ``` $ dotnet build ```
 * Run the project with ``` $ dotnet run ```
+* To run tests, first navigate to top level of directoy then run ``` $ dotnet test Bakery.Tests ```
 
 ## Known Bugs
 
